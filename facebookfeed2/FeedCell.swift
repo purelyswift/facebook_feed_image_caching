@@ -9,16 +9,44 @@
 import Foundation
 import UIKit
 
+var imageCache = NSCache()
+
 class FeedCell: UICollectionViewCell {
     
     var post: Post? {
         didSet {
             
             statusImageView.image = nil
+            loader.startAnimating()
             
-            if let statusImageName = post?.statusImageName {
-                statusImageView.image = UIImage(named: statusImageName)
-                loader.stopAnimating()
+            if let statusImageUrl = post?.statusImageUrl {
+                
+                if let image = imageCache.objectForKey(statusImageUrl) as? UIImage {
+                    statusImageView.image = image
+                } else {
+                    
+                    NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: statusImageUrl)!, completionHandler: { (data, response, error) -> Void in
+                        
+                        if error != nil {
+                            print(error)
+                            return
+                        }
+                        
+                        let image = UIImage(data: data!)
+                        
+                        imageCache.setObject(image!, forKey: statusImageUrl)
+                        
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            self.statusImageView.image = image
+                            self.loader.stopAnimating()
+                        })
+                        
+                        
+                    }).resume()
+                
+                }
+                
+                
             }
             
             setupNameLocationStatusAndProfileImage()

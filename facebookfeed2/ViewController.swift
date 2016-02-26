@@ -13,9 +13,14 @@ let cellId = "cellId"
 let posts = Posts()
 
 class FeedController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let memoryCapacity = 500 * 1024 * 1024
+//        let diskCapacity = 500 * 1024 * 1024
+//        let urlCache = NSURLCache(memoryCapacity: memoryCapacity, diskCapacity: diskCapacity, diskPath: "myDiskPath")
+//        NSURLCache.setSharedURLCache(urlCache)
         
         navigationItem.title = "Facebook Feed"
         

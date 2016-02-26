@@ -30,10 +30,10 @@ class Posts {
         postMark.name = "Mark Zuckerberg"
         postMark.profileImageName = "zuckprofile"
         postMark.statusText = "By giving people the power to share, we're making the world more transparent."
-        postMark.statusImageName = "zuckdog"
+        postMark.statusImageName = "mark_zuckerberg_background"
         postMark.numLikes = 400
         postMark.numComments = 123
-        postMark.statusImageUrl = "https://s3-us-west-2.amazonaws.com/letsbuildthatapp/zuckdog.jpg"
+        postMark.statusImageUrl = "https://s3-us-west-2.amazonaws.com/letsbuildthatapp/mark_zuckerberg_background.jpg"
         
         let postSteve = Post()
         postSteve.name = "Steve Jobs"
@@ -44,7 +44,7 @@ class Posts {
         postSteve.statusImageName = "steve_status"
         postSteve.numLikes = 1000
         postSteve.numComments = 55
-        postSteve.statusImageUrl = "https://s3-us-west-2.amazonaws.com/letsbuildthatapp/steve_status.jpg"
+        postSteve.statusImageUrl = "https://s3-us-west-2.amazonaws.com/letsbuildthatapp/steve_jobs_background.jpg"
         
         let postGandhi = Post()
         postGandhi.name = "Mahatma Gandhi"
@@ -63,19 +63,19 @@ class Posts {
         postBillGates.statusText = "Success is a lousy teacher. It seduces smart people into thinking they can't lose.\n\n" +
             "Your most unhappy customers are your greatest source of learning.\n\n" +
         "As we look ahead into the next century, leaders will be those who empower others."
-        postBillGates.statusImageUrl = "https://s3-us-west-2.amazonaws.com/letsbuildthatapp/bill_gates_status.jpg"
+        postBillGates.statusImageUrl = "https://s3-us-west-2.amazonaws.com/letsbuildthatapp/gates_background.jpg"
         
         let postTimCook = Post()
         postTimCook.name = "Tim Cook"
         postTimCook.profileImageName = "tim_cook_profile"
         postTimCook.statusText = "The worst thing in the world that can happen to you if you're an engineer that has given his life to something is for someone to rip it off and put their name on it."
-        postTimCook.statusImageUrl = "https://s3-us-west-2.amazonaws.com/letsbuildthatapp/tim_cook_status.jpg"
+        postTimCook.statusImageUrl = "https://s3-us-west-2.amazonaws.com/letsbuildthatapp/Tim+Cook.png"
         
         let postDonaldTrump = Post()
         postDonaldTrump.name = "Donald Trump"
         postDonaldTrump.profileImageName = "donald_trump_profile"
         postDonaldTrump.statusText = "An ‘extremely credible source’ has called my office and told me that Barack Obama’s birth certificate is a fraud."
-        postDonaldTrump.statusImageUrl = "https://s3-us-west-2.amazonaws.com/letsbuildthatapp/donald_trump_status.jpg"
+        postDonaldTrump.statusImageUrl = "https://s3-us-west-2.amazonaws.com/letsbuildthatapp/trump_background.jpg"
         
         postsList = [postMark, postSteve, postGandhi, postBillGates, postTimCook, postDonaldTrump]
     }
