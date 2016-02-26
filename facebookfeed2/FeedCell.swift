@@ -23,6 +23,7 @@ class FeedCell: UICollectionViewCell {
                 
                 if let image = imageCache.objectForKey(statusImageUrl) as? UIImage {
                     statusImageView.image = image
+                    loader.stopAnimating()
                 } else {
                     
                     NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: statusImageUrl)!, completionHandler: { (data, response, error) -> Void in
