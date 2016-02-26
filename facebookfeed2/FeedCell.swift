@@ -14,8 +14,11 @@ class FeedCell: UICollectionViewCell {
     var post: Post? {
         didSet {
             
+            statusImageView.image = nil
+            
             if let statusImageName = post?.statusImageName {
                 statusImageView.image = UIImage(named: statusImageName)
+                loader.stopAnimating()
             }
             
             setupNameLocationStatusAndProfileImage()
@@ -141,6 +144,8 @@ class FeedCell: UICollectionViewCell {
         addSubview(commentButton)
         addSubview(shareButton)
         
+        setupStatusImageViewLoader()
+        
         addConstraintsWithFormat("H:|-8-[v0(44)]-8-[v1]|", views: profileImageView, nameLabel)
         
         addConstraintsWithFormat("H:|-4-[v0]-4-|", views: statusTextView)
@@ -162,6 +167,17 @@ class FeedCell: UICollectionViewCell {
         
         addConstraintsWithFormat("V:[v0(44)]|", views: commentButton)
         addConstraintsWithFormat("V:[v0(44)]|", views: shareButton)
+    }
+    
+    let loader = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+    
+    func setupStatusImageViewLoader() {
+        loader.hidesWhenStopped = true
+        loader.startAnimating()
+        loader.color = UIColor.blackColor()
+        statusImageView.addSubview(loader)
+        statusImageView.addConstraintsWithFormat("H:|[v0]|", views: loader)
+        statusImageView.addConstraintsWithFormat("V:|[v0]|", views: loader)
     }
     
 }
